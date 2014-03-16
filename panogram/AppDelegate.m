@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainNavController.h"
 
 @implementation AppDelegate
 
@@ -14,8 +15,36 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    //    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    
+    UIColor *barTintColor = [UIColor colorWithRed:22.0/255.0 green:25.0/255.0 blue:27.0/255.0 alpha:1.0];
+    UIColor *tintColor = [UIColor colorWithRed:55.0/255.0 green:143.0/255.0 blue:234.0/255.0 alpha:1.0];
+    
+    
+    UIColor *whiteTitleColor = [UIColor colorWithWhite:.98 alpha:1.0];
+    UIFont *titleFont = [UIFont fontWithName:@"FreightSansProSemibold-Regular" size:18];
+
+    
+    UIFont *buttonFont = [UIFont fontWithName:@"FreightSansProMedium-Regular" size:18];
+        
+    [[UINavigationBar appearance] setBarTintColor:barTintColor];
+//    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName : titleFont, NSForegroundColorAttributeName: whiteTitleColor }];
+
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: buttonFont } forState:UIControlStateNormal];
+    [[UIWindow appearance] setTintColor:tintColor];
+    
+    
+    self.window.rootViewController = [[MainNavController alloc] init];
+    self.window.backgroundColor = [UIColor blackColor];
+    
+
+
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334C6BAB18D50BEA00729FEA /* FreigSanProMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 334C6BA918D50BEA00729FEA /* FreigSanProMed.otf */; };
+		334C6BAC18D50BEA00729FEA /* FreigSanProMedIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 334C6BAA18D50BEA00729FEA /* FreigSanProMedIt.otf */; };
+		334C6BAF18D5100800729FEA /* Panorama.m in Sources */ = {isa = PBXBuildFile; fileRef = 334C6BAE18D5100800729FEA /* Panorama.m */; };
+		334C6BB218D5114F00729FEA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 334C6BB118D5114F00729FEA /* AssetsLibrary.framework */; };
 		33611C8718D4FD2700C1396A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8618D4FD2700C1396A /* Foundation.framework */; };
 		33611C8918D4FD2700C1396A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8818D4FD2700C1396A /* CoreGraphics.framework */; };
 		33611C8B18D4FD2700C1396A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8A18D4FD2700C1396A /* UIKit.framework */; };
@@ -19,6 +23,12 @@
 		33611CA218D4FD2700C1396A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8A18D4FD2700C1396A /* UIKit.framework */; };
 		33611CAA18D4FD2700C1396A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33611CA818D4FD2700C1396A /* InfoPlist.strings */; };
 		33611CAC18D4FD2700C1396A /* panogramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33611CAB18D4FD2700C1396A /* panogramTests.m */; };
+		33611CBD18D5007600C1396A /* PanoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33611CBB18D5007600C1396A /* PanoTableViewController.m */; };
+		33611CBE18D5007600C1396A /* PanoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33611CBC18D5007600C1396A /* PanoTableViewController.xib */; };
+		33611CC518D501DA00C1396A /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33611CC318D501DA00C1396A /* MainNavController.m */; };
+		33611CC618D501DA00C1396A /* MainNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33611CC418D501DA00C1396A /* MainNavController.xib */; };
+		33611CDD18D50ADE00C1396A /* FreigSanProSem.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33611CD118D50ADE00C1396A /* FreigSanProSem.otf */; };
+		33611CDE18D50ADE00C1396A /* FreigSanProSemIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33611CD218D50ADE00C1396A /* FreigSanProSemIt.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		334C6BA918D50BEA00729FEA /* FreigSanProMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProMed.otf; sourceTree = "<group>"; };
+		334C6BAA18D50BEA00729FEA /* FreigSanProMedIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProMedIt.otf; sourceTree = "<group>"; };
+		334C6BAD18D5100800729FEA /* Panorama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panorama.h; sourceTree = "<group>"; };
+		334C6BAE18D5100800729FEA /* Panorama.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panorama.m; sourceTree = "<group>"; };
+		334C6BB118D5114F00729FEA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		33611C8318D4FD2700C1396A /* panogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = panogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33611C8618D4FD2700C1396A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33611C8818D4FD2700C1396A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +63,14 @@
 		33611CA718D4FD2700C1396A /* panogramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "panogramTests-Info.plist"; sourceTree = "<group>"; };
 		33611CA918D4FD2700C1396A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		33611CAB18D4FD2700C1396A /* panogramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = panogramTests.m; sourceTree = "<group>"; };
+		33611CBA18D5007600C1396A /* PanoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoTableViewController.h; sourceTree = "<group>"; };
+		33611CBB18D5007600C1396A /* PanoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoTableViewController.m; sourceTree = "<group>"; };
+		33611CBC18D5007600C1396A /* PanoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanoTableViewController.xib; sourceTree = "<group>"; };
+		33611CC218D501DA00C1396A /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		33611CC318D501DA00C1396A /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
+		33611CC418D501DA00C1396A /* MainNavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainNavController.xib; sourceTree = "<group>"; };
+		33611CD118D50ADE00C1396A /* FreigSanProSem.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProSem.otf; sourceTree = SOURCE_ROOT; };
+		33611CD218D50ADE00C1396A /* FreigSanProSemIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProSemIt.otf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,7 @@
 				33611C8918D4FD2700C1396A /* CoreGraphics.framework in Frameworks */,
 				33611C8B18D4FD2700C1396A /* UIKit.framework in Frameworks */,
 				33611C8718D4FD2700C1396A /* Foundation.framework in Frameworks */,
+				334C6BB218D5114F00729FEA /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +98,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334C6BB018D5100F00729FEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				334C6BAD18D5100800729FEA /* Panorama.h */,
+				334C6BAE18D5100800729FEA /* Panorama.m */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		33611C7A18D4FD2700C1396A = {
 			isa = PBXGroup;
 			children = (
+				33611CDF18D50AE400C1396A /* FreightSans */,
 				33611C8C18D4FD2700C1396A /* panogram */,
 				33611CA518D4FD2700C1396A /* panogramTests */,
 				33611C8518D4FD2700C1396A /* Frameworks */,
@@ -96,6 +131,7 @@
 		33611C8518D4FD2700C1396A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				334C6BB118D5114F00729FEA /* AssetsLibrary.framework */,
 				33611C8618D4FD2700C1396A /* Foundation.framework */,
 				33611C8818D4FD2700C1396A /* CoreGraphics.framework */,
 				33611C8A18D4FD2700C1396A /* UIKit.framework */,
@@ -107,10 +143,17 @@
 		33611C8C18D4FD2700C1396A /* panogram */ = {
 			isa = PBXGroup;
 			children = (
+				334C6BB018D5100F00729FEA /* Models */,
 				33611C9518D4FD2700C1396A /* AppDelegate.h */,
 				33611C9618D4FD2700C1396A /* AppDelegate.m */,
 				33611C9818D4FD2700C1396A /* Images.xcassets */,
 				33611C8D18D4FD2700C1396A /* Supporting Files */,
+				33611CBA18D5007600C1396A /* PanoTableViewController.h */,
+				33611CBB18D5007600C1396A /* PanoTableViewController.m */,
+				33611CBC18D5007600C1396A /* PanoTableViewController.xib */,
+				33611CC218D501DA00C1396A /* MainNavController.h */,
+				33611CC318D501DA00C1396A /* MainNavController.m */,
+				33611CC418D501DA00C1396A /* MainNavController.xib */,
 			);
 			path = panogram;
 			sourceTree = "<group>";
@@ -142,6 +185,17 @@
 				33611CA818D4FD2700C1396A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33611CDF18D50AE400C1396A /* FreightSans */ = {
+			isa = PBXGroup;
+			children = (
+				334C6BA918D50BEA00729FEA /* FreigSanProMed.otf */,
+				334C6BAA18D50BEA00729FEA /* FreigSanProMedIt.otf */,
+				33611CD118D50ADE00C1396A /* FreigSanProSem.otf */,
+				33611CD218D50ADE00C1396A /* FreigSanProSemIt.otf */,
+			);
+			name = FreightSans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +273,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334C6BAB18D50BEA00729FEA /* FreigSanProMed.otf in Resources */,
+				33611CC618D501DA00C1396A /* MainNavController.xib in Resources */,
 				33611C9118D4FD2700C1396A /* InfoPlist.strings in Resources */,
 				33611C9918D4FD2700C1396A /* Images.xcassets in Resources */,
+				33611CDD18D50ADE00C1396A /* FreigSanProSem.otf in Resources */,
+				33611CBE18D5007600C1396A /* PanoTableViewController.xib in Resources */,
+				334C6BAC18D50BEA00729FEA /* FreigSanProMedIt.otf in Resources */,
+				33611CDE18D50ADE00C1396A /* FreigSanProSemIt.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33611CC518D501DA00C1396A /* MainNavController.m in Sources */,
+				33611CBD18D5007600C1396A /* PanoTableViewController.m in Sources */,
 				33611C9718D4FD2700C1396A /* AppDelegate.m in Sources */,
 				33611C9318D4FD2700C1396A /* main.m in Sources */,
+				334C6BAF18D5100800729FEA /* Panorama.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +504,7 @@
 				33611CB118D4FD2700C1396A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33611CB218D4FD2700C1396A /* Build configuration list for PBXNativeTarget "panogramTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +513,7 @@
 				33611CB418D4FD2700C1396A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
