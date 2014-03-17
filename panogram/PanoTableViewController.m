@@ -10,6 +10,7 @@
 #import "Panorama.h"
 #import "MainNavController.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
+#import "PanoDetailViewController.h"
 
 @interface PanoTableViewController ()
 
@@ -58,7 +59,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"IMPORT" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(handleImport:)];
     
 
-    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-button" ] style:UIBarButtonItemStylePlain target:self action:nil];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -90,6 +92,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //TODO use a custom table view cell here.
+
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -98,9 +102,12 @@
        
     }
     
+    
     // Configure the cell...
 //    CGRect cellSize = CGRectMake(0,0, 320,88);
 //    cell.imageView.frame = cellSize;
+    
+    //this doesn't work, but will need  to do this in  our custom cell
     cell.imageView.clipsToBounds = YES;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
@@ -157,7 +164,7 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -165,14 +172,15 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
+    
+    //TODO: Need to create a custom view transition
+    
+    PanoDetailViewController *detailViewController = [[PanoDetailViewController alloc] initWithPanoImageAsset:[self.panos objectAtIndex:indexPath.row] assetsLibrary:self.library];
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
  
- */
+
 
 @end

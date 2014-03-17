@@ -11,6 +11,9 @@
 		334C6BAC18D50BEA00729FEA /* FreigSanProMedIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 334C6BAA18D50BEA00729FEA /* FreigSanProMedIt.otf */; };
 		334C6BAF18D5100800729FEA /* Panorama.m in Sources */ = {isa = PBXBuildFile; fileRef = 334C6BAE18D5100800729FEA /* Panorama.m */; };
 		334C6BB218D5114F00729FEA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 334C6BB118D5114F00729FEA /* AssetsLibrary.framework */; };
+		334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 334C6BB418D597C100729FEA /* PanoDetailViewController.m */; };
+		334C6BB718D597C100729FEA /* PanoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334C6BB518D597C100729FEA /* PanoDetailViewController.xib */; };
+		334C6BBB18D598F100729FEA /* detail-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 334C6BBA18D598F100729FEA /* detail-view@2x.png */; };
 		33611C8718D4FD2700C1396A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8618D4FD2700C1396A /* Foundation.framework */; };
 		33611C8918D4FD2700C1396A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8818D4FD2700C1396A /* CoreGraphics.framework */; };
 		33611C8B18D4FD2700C1396A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33611C8A18D4FD2700C1396A /* UIKit.framework */; };
@@ -47,6 +50,10 @@
 		334C6BAD18D5100800729FEA /* Panorama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panorama.h; sourceTree = "<group>"; };
 		334C6BAE18D5100800729FEA /* Panorama.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panorama.m; sourceTree = "<group>"; };
 		334C6BB118D5114F00729FEA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		334C6BB318D597C100729FEA /* PanoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoDetailViewController.h; sourceTree = "<group>"; };
+		334C6BB418D597C100729FEA /* PanoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoDetailViewController.m; sourceTree = "<group>"; };
+		334C6BB518D597C100729FEA /* PanoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanoDetailViewController.xib; sourceTree = "<group>"; };
+		334C6BBA18D598F100729FEA /* detail-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail-view@2x.png"; sourceTree = "<group>"; };
 		33611C8318D4FD2700C1396A /* panogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = panogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33611C8618D4FD2700C1396A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33611C8818D4FD2700C1396A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +150,7 @@
 		33611C8C18D4FD2700C1396A /* panogram */ = {
 			isa = PBXGroup;
 			children = (
+				334C6BBA18D598F100729FEA /* detail-view@2x.png */,
 				334C6BB018D5100F00729FEA /* Models */,
 				33611C9518D4FD2700C1396A /* AppDelegate.h */,
 				33611C9618D4FD2700C1396A /* AppDelegate.m */,
@@ -154,6 +162,9 @@
 				33611CC218D501DA00C1396A /* MainNavController.h */,
 				33611CC318D501DA00C1396A /* MainNavController.m */,
 				33611CC418D501DA00C1396A /* MainNavController.xib */,
+				334C6BB318D597C100729FEA /* PanoDetailViewController.h */,
+				334C6BB418D597C100729FEA /* PanoDetailViewController.m */,
+				334C6BB518D597C100729FEA /* PanoDetailViewController.xib */,
 			);
 			path = panogram;
 			sourceTree = "<group>";
@@ -242,7 +253,7 @@
 		33611C7B18D4FD2700C1396A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Joshua Dickens";
 				TargetAttributes = {
 					33611C9D18D4FD2700C1396A = {
@@ -275,6 +286,8 @@
 			files = (
 				334C6BAB18D50BEA00729FEA /* FreigSanProMed.otf in Resources */,
 				33611CC618D501DA00C1396A /* MainNavController.xib in Resources */,
+				334C6BBB18D598F100729FEA /* detail-view@2x.png in Resources */,
+				334C6BB718D597C100729FEA /* PanoDetailViewController.xib in Resources */,
 				33611C9118D4FD2700C1396A /* InfoPlist.strings in Resources */,
 				33611C9918D4FD2700C1396A /* Images.xcassets in Resources */,
 				33611CDD18D50ADE00C1396A /* FreigSanProSem.otf in Resources */,
@@ -302,6 +315,7 @@
 				33611CC518D501DA00C1396A /* MainNavController.m in Sources */,
 				33611CBD18D5007600C1396A /* PanoTableViewController.m in Sources */,
 				33611C9718D4FD2700C1396A /* AppDelegate.m in Sources */,
+				334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */,
 				33611C9318D4FD2700C1396A /* main.m in Sources */,
 				334C6BAF18D5100800729FEA /* Panorama.m in Sources */,
 			);
@@ -349,7 +363,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -388,7 +401,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -446,7 +458,6 @@
 		33611CB318D4FD2700C1396A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/panogram.app/panogram";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -469,7 +480,6 @@
 		33611CB418D4FD2700C1396A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/panogram.app/panogram";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
