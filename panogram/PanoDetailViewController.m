@@ -9,6 +9,7 @@
 #import "PanoDetailViewController.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
+#import "AppDelegate.h"
 
 @interface PanoDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *panoImageView;
@@ -21,7 +22,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *positionIndicator;
 
--(id)initWithPanoImageAsset:(ALAsset*)asset assetsLibrary:(ALAssetsLibrary* ) library;
+-(id)initWithPanoImageAsset:(ALAsset*)asset;
+
+-(void)handleBack:(id)sender;
 
 @end
 
@@ -33,15 +36,18 @@
     if (self) {
         // Custom initialization
         self.title = @"EDIT";
+        
 
     }
     return self;
 }
 
--(id)initWithPanoImageAsset:(ALAsset*)asset assetsLibrary:(ALAssetsLibrary* ) library{
+-(id)initWithPanoImageAsset:(ALAsset*)asset{
     self= [super init];
     if(self) {
-        self.library  = library;
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.library = appDelegate.library;
+        
         self.asset = asset;
     }
     return self;
@@ -50,13 +56,24 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow" ] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    self.navigationItem.leftItemsSupplementBackButton = NO;
+    
+    [UIView animateWithDuration:.35 animations:^{
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }];
+
 
 }
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     
     //create an image view with the asset from the library and set it up in the scroll view
     UIImage *image;
@@ -75,30 +92,13 @@
     indicatorSize.size.width = (320 / width * 320);
     self.positionIndicator.frame = indicatorSize;
     
-
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     
-    UIScrollView *scrollView = self.panoScrollView;
-//    
-//    CGRect bounds = scrollView.bounds;
-//    
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-//    animation.duration = 1.0;
-//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    
-//    animation.fromValue = [NSValue valueWithCGRect:bounds];
-//    
-//    bounds.origin.x += 200;
-//    
-//    animation.toValue = [NSValue valueWithCGRect:bounds];
-//    
-//    [scrollView.layer addAnimation:animation forKey:@"bounds"];
-//    
-//    scrollView.bounds = bounds;
-//    
-//
+
+    
     [UIView animateWithDuration:10 delay:1 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse |UIViewAnimationOptionBeginFromCurrentState animations:^{
         [self.panoScrollView setContentOffset:CGPointMake(self.panoScrollView.contentSize.width-320, 0) animated:NO];
         
@@ -122,6 +122,13 @@
 
 }
 
+#pragma mark -- Custom actions
+
+-(void) handleBack: (id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 
 #pragma mark -- SCroll view delegate methods
@@ -135,6 +142,10 @@
     newFrame.origin.x = offsetPct * 320;
     self.positionIndicator.frame = newFrame;
     
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.panoImageView;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -153,7 +164,6 @@
     //set the content offset manually so that it picks up where it left off.
     
     [self.panoScrollView setContentOffset:currentLayer.bounds.origin animated:NO];
-
 }
 
 

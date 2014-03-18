@@ -11,6 +11,6 @@
 
 @interface PanoDetailViewController : UIViewController <UIScrollViewDelegate>
 
--(id)initWithPanoImageAsset:(ALAsset*)asset assetsLibrary:(ALAssetsLibrary* ) library;
+-(id)initWithPanoImageAsset:(ALAsset*)asset;
 
 @end

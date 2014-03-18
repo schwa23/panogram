@@ -11,6 +11,8 @@
 #import "MainNavController.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import "PanoDetailViewController.h"
+#import "PanoCell.h"
+#import "AppDelegate.h"
 
 @interface PanoTableViewController ()
 
@@ -32,7 +34,9 @@
         
         self.panos = [[NSMutableArray alloc] init];
         
-        self.library = [[ALAssetsLibrary alloc] init];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.library = appDelegate.library;
+        
         [self.library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
             [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 ALAssetRepresentation *rep = [result defaultRepresentation];
@@ -50,6 +54,8 @@
 
         
     }
+    
+    
     return self;
 }
 
@@ -59,14 +65,25 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"IMPORT" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(handleImport:)];
     
 
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-button" ] style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    
+    
+    [[self tableView] registerNib:[UINib nibWithNibName:@"PanoCell" bundle:nil] forCellReuseIdentifier:@"PanoCell"];
 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    /// self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //clear the tint color
+    [UIView animateWithDuration:.35 animations:^{
+        self.navigationController.navigationBar.tintColor = nil;
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,30 +111,20 @@
 {
     //TODO use a custom table view cell here.
 
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"PanoCell";
+    PanoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell = (PanoCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedListCell"];
         
        
     }
+
     
-    
-    // Configure the cell...
-//    CGRect cellSize = CGRectMake(0,0, 320,88);
-//    cell.imageView.frame = cellSize;
-    
-    //this doesn't work, but will need  to do this in  our custom cell
-    cell.imageView.clipsToBounds = YES;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    cell.contentView.backgroundColor = [UIColor blackColor];
     ALAsset *asset = [self.panos objectAtIndex:indexPath.row];
     CGImageRef thumb = [asset aspectRatioThumbnail];
     
-    [cell.imageView setImage:[UIImage imageWithCGImage:thumb]];
-    
-    
+    [cell.panoImageView setImage:[UIImage imageWithCGImage:thumb]];
+
     return cell;
 }
 
@@ -175,7 +182,7 @@
     
     //TODO: Need to create a custom view transition
     
-    PanoDetailViewController *detailViewController = [[PanoDetailViewController alloc] initWithPanoImageAsset:[self.panos objectAtIndex:indexPath.row] assetsLibrary:self.library];
+    PanoDetailViewController *detailViewController = [[PanoDetailViewController alloc] initWithPanoImageAsset:[self.panos objectAtIndex:indexPath.row]];
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];

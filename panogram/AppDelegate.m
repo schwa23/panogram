@@ -40,7 +40,7 @@
     self.window.rootViewController = [[MainNavController alloc] init];
     self.window.backgroundColor = [UIColor blackColor];
     
-
+    self.library = [[ALAssetsLibrary alloc] init];
 
     [self.window makeKeyAndVisible];
     

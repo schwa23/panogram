@@ -30,6 +30,8 @@
 		33611CC618D501DA00C1396A /* MainNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33611CC418D501DA00C1396A /* MainNavController.xib */; };
 		33EB2E7918D79F7C00B91B40 /* FreigSanProMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33EB2E7718D79F7C00B91B40 /* FreigSanProMed.otf */; };
 		33EB2E7A18D79F7C00B91B40 /* FreigSanProSem.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33EB2E7818D79F7C00B91B40 /* FreigSanProSem.otf */; };
+		33EB2E7E18D8403000B91B40 /* PanoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EB2E7C18D8403000B91B40 /* PanoCell.m */; };
+		33EB2E7F18D8403000B91B40 /* PanoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33EB2E7D18D8403000B91B40 /* PanoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		33611CC418D501DA00C1396A /* MainNavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainNavController.xib; sourceTree = "<group>"; };
 		33EB2E7718D79F7C00B91B40 /* FreigSanProMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProMed.otf; sourceTree = "<group>"; };
 		33EB2E7818D79F7C00B91B40 /* FreigSanProSem.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProSem.otf; sourceTree = "<group>"; };
+		33EB2E7B18D8403000B91B40 /* PanoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoCell.h; sourceTree = "<group>"; };
+		33EB2E7C18D8403000B91B40 /* PanoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoCell.m; sourceTree = "<group>"; };
+		33EB2E7D18D8403000B91B40 /* PanoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +166,9 @@
 				334C6BB318D597C100729FEA /* PanoDetailViewController.h */,
 				334C6BB418D597C100729FEA /* PanoDetailViewController.m */,
 				334C6BB518D597C100729FEA /* PanoDetailViewController.xib */,
+				33EB2E7B18D8403000B91B40 /* PanoCell.h */,
+				33EB2E7C18D8403000B91B40 /* PanoCell.m */,
+				33EB2E7D18D8403000B91B40 /* PanoCell.xib */,
 			);
 			path = panogram;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 				33EB2E7A18D79F7C00B91B40 /* FreigSanProSem.otf in Resources */,
 				334C6BBB18D598F100729FEA /* detail-view@2x.png in Resources */,
 				33EB2E7918D79F7C00B91B40 /* FreigSanProMed.otf in Resources */,
+				33EB2E7F18D8403000B91B40 /* PanoCell.xib in Resources */,
 				334C6BB718D597C100729FEA /* PanoDetailViewController.xib in Resources */,
 				33611C9118D4FD2700C1396A /* InfoPlist.strings in Resources */,
 				33611C9918D4FD2700C1396A /* Images.xcassets in Resources */,
@@ -305,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33611CC518D501DA00C1396A /* MainNavController.m in Sources */,
+				33EB2E7E18D8403000B91B40 /* PanoCell.m in Sources */,
 				33611CBD18D5007600C1396A /* PanoTableViewController.m in Sources */,
 				33611C9718D4FD2700C1396A /* AppDelegate.m in Sources */,
 				334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */,
