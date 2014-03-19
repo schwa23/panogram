@@ -13,6 +13,10 @@
 
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 @property (weak, nonatomic) IBOutlet UIImageView *panoImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *panoScrollView;
+
+@property (assign, nonatomic) CGPoint currentOffset;
+
 
 
 @end

@@ -12,13 +12,14 @@
 #import "AppDelegate.h"
 
 @interface PanoDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *panoScrollView;
 
 @property (strong, nonatomic) ALAssetsLibrary* library;
 @property (strong, nonatomic) ALAsset* asset;
 @property (strong, nonatomic) UIPanGestureRecognizer* scrollGestureRecognizer;
 @property (assign, nonatomic) CGFloat xOffset;
 @property (weak, nonatomic) IBOutlet UIButton *panZoomButton;
+
+
 
 @property (weak, nonatomic) IBOutlet UIView *positionIndicator;
 
@@ -50,6 +51,7 @@
         self.library = appDelegate.library;
         
         self.asset = asset;
+        self.currentOffset = CGPointMake(0,0);
 
     }
     return self;
@@ -123,6 +125,24 @@
 
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    
+    CALayer *currentLayer = self.panoScrollView.layer.presentationLayer;
+    
+    NSLog(@"x offset: %f", currentLayer.bounds.origin.x);
+    
+    //remove the animations from the layer of the scroll view & indicator bar
+    [self.panoScrollView.layer removeAllAnimations];
+    [self.positionIndicator.layer removeAllAnimations];
+    
+    [self.panoScrollView setContentOffset:currentLayer.bounds.origin animated:NO];
+
+    
+    self.currentOffset = currentLayer.bounds.origin;
+    
+    
+}
+
 #pragma mark -- Custom actions
 
 -(void) handleBack: (id)sender {
@@ -150,6 +170,7 @@
     newFrame.origin.x = offsetPct * 320;
     self.positionIndicator.frame = newFrame;
     
+    self.currentOffset = scrollView.contentOffset;
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

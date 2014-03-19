@@ -18,28 +18,24 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-//    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-    
-//    CGFloat alpha = 1.0;
-//    
+//     CGFloat alpha = 1.0;
 //    if(selected){
-//        alpha = .5;
+//        alpha = .1;
 //    }
 //    
 //    if(animated){
 //        NSLog(@"animated: %d", animated);
-//    [UIView animateWithDuration:.2 animations:^{
-//        self.panoImageView.alpha = alpha;
-//
-//    }];
-//    
+//        [UIView animateWithDuration:.35 animations:^{
+//            self.panoImageView.alpha = alpha;
+//            
+//        }];
+//        
 //    }
 //    
 //    else {
 //        self.panoImageView.alpha = alpha;
 //    }
+
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
