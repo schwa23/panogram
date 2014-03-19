@@ -13,11 +13,14 @@
 #import "PanoDetailViewController.h"
 #import "PanoCell.h"
 #import "AppDelegate.h"
+#import "TransitionAnimator.h"
 
 @interface PanoTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray* panos;
 @property (nonatomic, strong) ALAssetsLibrary* library;
+@property (nonatomic,strong) TransitionAnimator* transitionAnimator;
+
 @end
 
 @implementation PanoTableViewController
@@ -32,6 +35,7 @@
         
             self.title = @"PANORAMAS";
         
+        self.selectedFrame = CGRectMake(0, 0, 320, 88);
         self.panos = [[NSMutableArray alloc] init];
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -64,9 +68,8 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"IMPORT" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(handleImport:)];
     
-
     
-    
+    self.transitionAnimator = [[TransitionAnimator alloc] init];
     
     [[self tableView] registerNib:[UINib nibWithNibName:@"PanoCell" bundle:nil] forCellReuseIdentifier:@"PanoCell"];
 
@@ -80,10 +83,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     //clear the tint color
-    [UIView animateWithDuration:.35 animations:^{
-        self.navigationController.navigationBar.tintColor = nil;
-    }];
+//    [UIView animateWithDuration:.35 animations:^{
+//        self.navigationController.navigationBar.tintColor = nil;
+//    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,13 +186,29 @@
     // Create the next view controller.
     
     //TODO: Need to create a custom view transition
+    ALAsset *selectedAsset = [self.panos objectAtIndex:indexPath.row];
     
-    PanoDetailViewController *detailViewController = [[PanoDetailViewController alloc] initWithPanoImageAsset:[self.panos objectAtIndex:indexPath.row]];
+    PanoDetailViewController *detailViewController = [[PanoDetailViewController alloc] initWithPanoImageAsset:selectedAsset];
     
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
- 
+    UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    modalNav.modalPresentationStyle = UIModalPresentationCustom;
+    modalNav.transitioningDelegate = self.transitionAnimator;
+    
+    ALAssetRepresentation *rep = [selectedAsset defaultRepresentation];
+    self.transitionAnimator.transitionImage = [UIImage imageWithCGImage:[rep fullScreenImage]];
+    
+    PanoCell *selectedCell = (PanoCell *)[tableView cellForRowAtIndexPath:indexPath];
+    CGRect selectedFrame = selectedCell.frame;
+    
+    selectedFrame = [self.tableView convertRect:selectedFrame toView:[self.view superview]];
+    self.selectedFrame = selectedFrame;
+    
+    [self presentViewController:modalNav animated:YES completion:^{
+        //did present view controller
+    }];
 
+    
+    
+}
 
 @end

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PanoDetailViewController">
             <connections>
+                <outlet property="panZoomButton" destination="tsN-wo-NPu" id="cDQ-g9-Ip1"/>
                 <outlet property="panoImageView" destination="Q39-2w-HNF" id="W1l-Hn-4KH"/>
                 <outlet property="panoScrollView" destination="lrD-SB-CGe" id="8ho-XG-msP"/>
                 <outlet property="positionIndicator" destination="Oa7-f2-sIg" id="OnX-ji-9cM"/>
@@ -39,14 +40,28 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="0.23921570181846619" green="0.60784316062927246" blue="0.90588241815567017" alpha="1" colorSpace="deviceRGB"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tsN-wo-NPu" userLabel="editbutton">
+                    <rect key="frame" x="79" y="327" width="38" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                    </accessibility>
+                    <state key="normal" image="panzoom_button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="handlePanZoomButton:" destination="-1" eventType="touchUpInside" id="yqe-xI-IBh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.086274512112140656" green="0.098039224743843079" blue="0.10588236153125763" alpha="1" colorSpace="deviceRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="detail-view.png" width="320" height="516"/>
+        <image name="panzoom_button" width="38" height="21"/>
     </resources>
 </document>

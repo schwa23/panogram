@@ -12,19 +12,20 @@
 #import "AppDelegate.h"
 
 @interface PanoDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *panoImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *panoScrollView;
 
 @property (strong, nonatomic) ALAssetsLibrary* library;
 @property (strong, nonatomic) ALAsset* asset;
 @property (strong, nonatomic) UIPanGestureRecognizer* scrollGestureRecognizer;
 @property (assign, nonatomic) CGFloat xOffset;
+@property (weak, nonatomic) IBOutlet UIButton *panZoomButton;
 
 @property (weak, nonatomic) IBOutlet UIView *positionIndicator;
 
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 
 -(void)handleBack:(id)sender;
+- (IBAction)handlePanZoomButton:(id)sender;
 
 @end
 
@@ -49,6 +50,7 @@
         self.library = appDelegate.library;
         
         self.asset = asset;
+
     }
     return self;
 }
@@ -92,18 +94,17 @@
     indicatorSize.size.width = (320 / width * 320);
     self.positionIndicator.frame = indicatorSize;
     
-    
+    self.panoScrollView.hidden=YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     
-
+    self.panoScrollView.hidden = NO;
     
     [UIView animateWithDuration:10 delay:1 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse |UIViewAnimationOptionBeginFromCurrentState animations:^{
         [self.panoScrollView setContentOffset:CGPointMake(self.panoScrollView.contentSize.width-320, 0) animated:NO];
         
     } completion:^(BOOL finished) {
-        
 
         NSLog(@"Content offset = %f", self.panoScrollView.contentOffset.x);
         //finished
@@ -125,8 +126,15 @@
 #pragma mark -- Custom actions
 
 -(void) handleBack: (id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
     
+    [self dismissViewControllerAnimated:YES completion:^{
+//        did dismiss
+    }];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (IBAction)handlePanZoomButton:(id)sender {
 }
 
 

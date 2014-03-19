@@ -10,4 +10,6 @@
 
 @interface PanoTableViewController : UITableViewController
 
+@property (nonatomic, assign) CGRect selectedFrame;
+
 @end

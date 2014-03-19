@@ -11,7 +11,7 @@
 
 @interface MainNavController ()
 
--(void)handleImport:(id) sender;
+-(void)handleImport:(id)sender;
 
 @end
 
