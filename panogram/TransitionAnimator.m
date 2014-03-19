@@ -122,12 +122,6 @@
         
     } else {
         
-        detailViewController = (UINavigationController *) fromViewController;
-        mainNavController = (UINavigationController *) toViewController;
-        
-        tableViewController = mainNavController.viewControllers[0];
-        panoVC = detailViewController.viewControllers[0];
-        
         
         [containerView insertSubview:mainNavController.view atIndex:0];
 
