@@ -41,6 +41,8 @@
 {
     [super viewDidLoad];
     self.panoScrollView = self.previousScrollView;
+    NSLog(@"Panoscrollview = %@", self.panoScrollView);
+    [self.view addSubview:self.panoScrollView];
     self.previousScrollView = nil;
     // Do any additional setup after loading the view from its nib.
 }

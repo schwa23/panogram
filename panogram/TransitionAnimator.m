@@ -25,7 +25,7 @@
     if (self) {
         self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
         self.interactive = NO;
-        self.transitionDuration = 2;
+        self.transitionDuration = .35;
     }
     return self;
 }
@@ -84,7 +84,7 @@
     
     if (self.presenting)
     {
-        
+        self.transitionDuration = .4;
         detailViewController.view.alpha = 0;
         
         [containerView addSubview:detailViewController.view];
@@ -122,6 +122,7 @@
         
     } else {
         
+        self.transitionDuration = .35;
         
         [containerView insertSubview:mainNavController.view atIndex:0];
 

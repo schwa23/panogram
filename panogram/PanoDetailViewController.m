@@ -72,7 +72,10 @@
     [UIView animateWithDuration:.35 animations:^{
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }];
-
+    
+    CGRect frame = self.panoScrollView.frame;
+    frame.origin = CGPointMake(0, 0);
+    [self.view addSubview:self.panoScrollView];
 
 }
 
@@ -103,7 +106,10 @@
     self.panoScrollView.hidden=YES;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"NEXT" style:UIBarButtonItemStylePlain target:self action:@selector(handleNext:)];
+    
 }
+
+
 
 - (void) viewDidAppear:(BOOL)animated {
     
@@ -164,8 +170,8 @@
 }
 
 - (void)handleNext:(id) sender {
-    PanoPo
-    self.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>
+    PanoPostingViewController *postingVC = [[PanoPostingViewController alloc] initWithScrollView:self.panoScrollView];
+    [self.navigationController pushViewController:postingVC animated:YES];
 }
 
 #pragma mark -- SCroll view delegate methods
