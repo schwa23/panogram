@@ -10,6 +10,7 @@
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
 #import "AppDelegate.h"
+#import "PanoPostingViewController.h"
 
 @interface PanoDetailViewController ()
 
@@ -26,7 +27,10 @@
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 
 -(void)handleBack:(id)sender;
+-(void)handleNext:(id)sender;
+
 - (IBAction)handlePanZoomButton:(id)sender;
+
 
 @end
 
@@ -97,6 +101,8 @@
     self.positionIndicator.frame = indicatorSize;
     
     self.panoScrollView.hidden=YES;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"NEXT" style:UIBarButtonItemStylePlain target:self action:@selector(handleNext:)];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -157,7 +163,10 @@
 - (IBAction)handlePanZoomButton:(id)sender {
 }
 
-
+- (void)handleNext:(id) sender {
+    PanoPo
+    self.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>
+}
 
 #pragma mark -- SCroll view delegate methods
 

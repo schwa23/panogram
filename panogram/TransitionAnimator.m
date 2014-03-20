@@ -127,14 +127,13 @@
 
         
         CGFloat width = self.transitionImage.size.width / self.transitionImage.size.height * 320;
-        NSLog(@"width: %f", width);
         CGRect sourceFrame = CGRectMake(-panoVC.currentOffset.x, 64, width, 320);
         
         CGRect destinationFrame = tableViewController.selectedFrame;
         destinationFrame.size.height = 88; //force the height on the image view, since the cell actually has padding
         
        
-        
+    
         UIImageView *transitionImage = [[UIImageView alloc] initWithFrame:sourceFrame];
         transitionImage.image = self.transitionImage;
         transitionImage.clipsToBounds = YES;
