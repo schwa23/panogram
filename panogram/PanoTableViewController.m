@@ -203,12 +203,15 @@
     selectedFrame = [self.tableView convertRect:selectedFrame toView:[self.view superview]];
     self.selectedFrame = selectedFrame;
     
-    [self presentViewController:modalNav animated:YES completion:^{
+    [self performSelectorOnMainThread:@selector(openDetailWithController:) withObject:modalNav waitUntilDone:NO];
+    
+}
+
+- (void)openDetailWithController:(UINavigationController *)controller
+{
+    [self presentViewController:controller animated:YES completion:^{
         //did present view controller
     }];
-
-    
-    
 }
 
 @end
