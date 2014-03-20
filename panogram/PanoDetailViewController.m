@@ -170,8 +170,8 @@
 }
 
 - (void)handleNext:(id) sender {
-    PanoPostingViewController *postingVC = [[PanoPostingViewController alloc] initWithScrollView:self.panoScrollView];
-    [self.navigationController pushViewController:postingVC animated:YES];
+//    PanoPostingViewController *postingVC = [[PanoPostingViewController alloc] initWithScrollView:self.panoScrollView];
+//    [self.navigationController pushViewController:postingVC animated:YES];
 }
 
 #pragma mark -- SCroll view delegate methods
