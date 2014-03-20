@@ -174,7 +174,7 @@
 //    [self.navigationController pushViewController:postingVC animated:YES];
 }
 
-#pragma mark -- SCroll view delegate methods
+#pragma mark -- Scroll view delegate methods
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
