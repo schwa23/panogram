@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail-view.png" id="zY0-9P-U3F">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="74" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2.5" bouncesZoom="NO" id="lrD-SB-CGe">
@@ -41,7 +41,7 @@
                     <color key="backgroundColor" red="0.23921570181846619" green="0.60784316062927246" blue="0.90588241815567017" alpha="1" colorSpace="deviceRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tsN-wo-NPu" userLabel="editbutton">
-                    <rect key="frame" x="79" y="394" width="38" height="22"/>
+                    <rect key="frame" x="79" y="397" width="38" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
