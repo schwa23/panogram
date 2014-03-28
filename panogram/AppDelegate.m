@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainNavController.h"
+#import "PanZoomViewController.h"
+#import "PanoDoneBarButtonItem.h"
 
 @implementation AppDelegate
 
@@ -29,23 +31,40 @@
     
     UIFont *buttonFont = [UIFont fontWithName:@"FreightSansProMedium-Regular" size:18];
         
-    [[UINavigationBar appearance] setBarTintColor:barTintColor];
-//    [[UINavigationBar appearance] setTranslucent:NO];
-    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName : titleFont, NSForegroundColorAttributeName: whiteTitleColor }];
+    [[UINavigationBar appearance] setBarTintColor:barTintColor];    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName : titleFont, NSForegroundColorAttributeName: whiteTitleColor }];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: buttonFont } forState:UIControlStateNormal];
+    
+//    [[UIToolbar appearanceWhenContainedInPanZoomViewControllerer class], [PanZoomViewController class], [UINavigationController class], nil] setTintColor:whiteTitleColor];
+    
+    
+    [[PanoDoneBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: titleFont} forState:UIControlStateNormal];
+
     [[UIWindow appearance] setTintColor:tintColor];
     
-    
+
     self.window.rootViewController = [[MainNavController alloc] init];
     self.window.backgroundColor = [UIColor blackColor];
     
-    self.library = [[ALAssetsLibrary alloc] init];
+    self.library = [AppDelegate defaultAssetsLibrary];
 
+    
+
+    
     [self.window makeKeyAndVisible];
     
     
     return YES;
+}
+
++ (ALAssetsLibrary *)defaultAssetsLibrary
+{
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&pred, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

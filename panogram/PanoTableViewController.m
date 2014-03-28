@@ -38,8 +38,7 @@
         self.selectedFrame = CGRectMake(0, 0, 320, 88);
         self.panos = [[NSMutableArray alloc] init];
         
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.library = appDelegate.library;
+        self.library = [AppDelegate defaultAssetsLibrary];
         
         [self.library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
             [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
@@ -202,7 +201,9 @@
     
     selectedFrame = [self.tableView convertRect:selectedFrame toView:[self.view superview]];
     self.selectedFrame = selectedFrame;
-    
+//    [self presentViewController:modalNav animated:YES completion:^{
+//        //did present view controller
+//    }];
     [self performSelectorOnMainThread:@selector(openDetailWithController:) withObject:modalNav waitUntilDone:NO];
     
 }
