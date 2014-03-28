@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "MainNavController.h"
 #import "PanZoomViewController.h"
-#import "PanoDoneBarButtonItem.h"
 
 @implementation AppDelegate
 
@@ -38,7 +37,7 @@
 //    [[UIToolbar appearanceWhenContainedInPanZoomViewControllerer class], [PanZoomViewController class], [UINavigationController class], nil] setTintColor:whiteTitleColor];
     
     
-    [[PanoDoneBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: titleFont} forState:UIControlStateNormal];
+
 
     [[UIWindow appearance] setTintColor:tintColor];
     

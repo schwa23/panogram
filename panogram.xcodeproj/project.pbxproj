@@ -33,7 +33,6 @@
 		33848EE818DA740800E0ADDF /* PanoPostingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33848EE618DA740800E0ADDF /* PanoPostingViewController.xib */; };
 		33D7D0C018E235E400CC5314 /* PanZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D0BE18E235E400CC5314 /* PanZoomViewController.m */; };
 		33D7D0C118E235E400CC5314 /* PanZoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D7D0BF18E235E400CC5314 /* PanZoomViewController.xib */; };
-		33D7D0C618E2538D00CC5314 /* PanoDoneBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D0C518E2538D00CC5314 /* PanoDoneBarButtonItem.m */; };
 		33EB2E7918D79F7C00B91B40 /* FreigSanProMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33EB2E7718D79F7C00B91B40 /* FreigSanProMed.otf */; };
 		33EB2E7A18D79F7C00B91B40 /* FreigSanProSem.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33EB2E7818D79F7C00B91B40 /* FreigSanProSem.otf */; };
 		33EB2E7E18D8403000B91B40 /* PanoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EB2E7C18D8403000B91B40 /* PanoCell.m */; };
@@ -88,8 +87,6 @@
 		33D7D0BD18E235E400CC5314 /* PanZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanZoomViewController.h; sourceTree = "<group>"; };
 		33D7D0BE18E235E400CC5314 /* PanZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanZoomViewController.m; sourceTree = "<group>"; };
 		33D7D0BF18E235E400CC5314 /* PanZoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanZoomViewController.xib; sourceTree = "<group>"; };
-		33D7D0C418E2538D00CC5314 /* PanoDoneBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoDoneBarButtonItem.h; sourceTree = "<group>"; };
-		33D7D0C518E2538D00CC5314 /* PanoDoneBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoDoneBarButtonItem.m; sourceTree = "<group>"; };
 		33EB2E7718D79F7C00B91B40 /* FreigSanProMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProMed.otf; sourceTree = "<group>"; };
 		33EB2E7818D79F7C00B91B40 /* FreigSanProSem.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreigSanProSem.otf; sourceTree = "<group>"; };
 		33EB2E7B18D8403000B91B40 /* PanoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoCell.h; sourceTree = "<group>"; };
@@ -201,8 +198,6 @@
 				33D7D0BD18E235E400CC5314 /* PanZoomViewController.h */,
 				33D7D0BE18E235E400CC5314 /* PanZoomViewController.m */,
 				33D7D0BF18E235E400CC5314 /* PanZoomViewController.xib */,
-				33D7D0C418E2538D00CC5314 /* PanoDoneBarButtonItem.h */,
-				33D7D0C518E2538D00CC5314 /* PanoDoneBarButtonItem.m */,
 			);
 			path = panogram;
 			sourceTree = "<group>";
@@ -357,7 +352,6 @@
 				334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */,
 				3349E3DC18D91F0E0002DF65 /* TransitionAnimator.m in Sources */,
 				33611C9318D4FD2700C1396A /* main.m in Sources */,
-				33D7D0C618E2538D00CC5314 /* PanoDoneBarButtonItem.m in Sources */,
 				334C6BAF18D5100800729FEA /* Panorama.m in Sources */,
 				33D7D0C018E235E400CC5314 /* PanZoomViewController.m in Sources */,
 			);
