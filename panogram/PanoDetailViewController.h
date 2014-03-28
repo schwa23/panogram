@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/ALAssetsLibrary.h>
+#import "PanZoomViewController.h"
 
-@interface PanoDetailViewController : UIViewController <UIScrollViewDelegate>
+@interface PanoDetailViewController : UIViewController <UIScrollViewDelegate, PanZoomEditorDelegate>
 
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 @property (weak, nonatomic) IBOutlet UIImageView *panoImageView;
@@ -17,6 +18,7 @@
 
 @property (assign, nonatomic) CGPoint currentOffset;
 
+-(void)dismissChildModalViewController:(id)sender ;
 
 
 @end

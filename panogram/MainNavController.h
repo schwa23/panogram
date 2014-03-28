@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MainNavController : UINavigationController
-
+-(void)handleImport:(id)sender;
 @end

@@ -11,6 +11,7 @@
 #import <AssetsLibrary/ALAssetRepresentation.h>
 #import "AppDelegate.h"
 #import "PanoPostingViewController.h"
+#import "PanZoomViewController.h"
 
 @interface PanoDetailViewController ()
 
@@ -20,7 +21,7 @@
 @property (assign, nonatomic) CGFloat xOffset;
 @property (weak, nonatomic) IBOutlet UIButton *panZoomButton;
 
-
+@property (strong, nonatomic) PanZoomViewController *panZoomController;
 
 @property (weak, nonatomic) IBOutlet UIView *positionIndicator;
 
@@ -29,8 +30,10 @@
 -(void)handleBack:(id)sender;
 -(void)handleNext:(id)sender;
 
-- (IBAction)handlePanZoomButton:(id)sender;
+-(void)showDefaultNavItems ;
 
+- (IBAction)handlePanZoomButton:(id)sender;
+-(void)dismissChildModalViewController:(id)sender ;
 
 @end
 
@@ -51,8 +54,7 @@
 -(id)initWithPanoImageAsset:(ALAsset*)asset{
     self= [super init];
     if(self) {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.library = appDelegate.library;
+        self.library = [AppDelegate defaultAssetsLibrary];
         
         self.asset = asset;
         self.currentOffset = CGPointMake(0,0);
@@ -64,10 +66,6 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow" ] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-    
-    self.navigationItem.leftItemsSupplementBackButton = NO;
     
     [UIView animateWithDuration:.35 animations:^{
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -76,10 +74,29 @@
     CGRect frame = self.panoScrollView.frame;
     frame.origin = CGPointMake(0, 0);
     [self.view addSubview:self.panoScrollView];
+    
+    [self showDefaultNavItems];
 
 }
 
 
+-(void)showDefaultNavItems {
+
+    
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow" ] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)] animated: YES];
+    
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    
+    self.navigationItem.leftItemsSupplementBackButton = NO;
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"NEXT" style:UIBarButtonItemStylePlain target:self action:@selector(handleNext:)] animated:YES];
+    
+    self.title = @"EDIT";
+    
+  
+
+    
+}
 
 - (void)viewDidLoad
 {
@@ -91,6 +108,7 @@
     
     ALAssetRepresentation *rep = [self.asset defaultRepresentation];
     image = [UIImage imageWithCGImage:[rep fullScreenImage]];
+    
     
     CGFloat width = rep.dimensions.width / rep.dimensions.height * 320;
     CGRect newFrame = CGRectMake(0,0, width ,320);
@@ -105,7 +123,7 @@
     
     self.panoScrollView.hidden=YES;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"NEXT" style:UIBarButtonItemStylePlain target:self action:@selector(handleNext:)];
+
     
 }
 
@@ -167,6 +185,86 @@
 }
 
 - (IBAction)handlePanZoomButton:(id)sender {
+    
+    PanZoomViewController *panZoomController = [[PanZoomViewController alloc] init];
+    
+    
+    [self addChildViewController:panZoomController];
+    
+    CGPoint finalPoint = CGPointMake(panZoomController.view.frame.size.width /2, self.view.frame.size.height - panZoomController.view.frame.size.height /2);
+    CGPoint startPoint = CGPointMake(finalPoint.x,self.view.frame.size.height + panZoomController.view.frame.size.height /2);
+    
+    panZoomController.view.center = startPoint;
+    
+    [self.view addSubview:panZoomController.view];
+    
+    UIImage *image;
+    
+//    ALAssetRepresentation *rep = [self.asset defaultRepresentation];
+    
+    CGImageRef thumb = [self.asset aspectRatioThumbnail]; //[rep CGImageWithOptions:nil]
+    image = [[UIImage alloc] initWithCGImage:thumb];
+    panZoomController.panoImage.image = image;
+   
+
+    
+    panZoomController.delegate=self;
+    self.panZoomController=panZoomController;
+    
+
+   
+    [self.navigationItem setTitle:@"PAN & ZOOM"];
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
+
+
+
+    
+    
+    
+        
+    [UIView animateWithDuration:.35 delay:0 usingSpringWithDamping:.9 initialSpringVelocity:10 options:0 animations:^{
+        panZoomController.view.center =finalPoint;
+    } completion:nil];
+    
+    [self _stopAnimationsAndUpdateScrollView];
+    [self.panoScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+
+}
+
+-(void)hidePanZoomView:(void (^)(BOOL finished))completion {
+    PanZoomViewController *panZoomController = self.panZoomController;
+    
+    CGPoint finalPoint = CGPointMake(panZoomController.view.frame.size.width /2, self.view.frame.size.height - panZoomController.view.frame.size.height /2);
+    CGPoint startPoint = CGPointMake(finalPoint.x,self.view.frame.size.height + panZoomController.view.frame.size.height /2);
+    
+//    panZoomController.view.center = startPoint;
+    
+    
+    
+    
+    [UIView animateWithDuration:.35 delay:0 usingSpringWithDamping:.9 initialSpringVelocity:10 options:0 animations:^{
+        panZoomController.view.center =startPoint;
+    } completion:completion];
+
+    
+}
+
+
+-(void)dismissChildModalViewController:(id)sender ; {
+    if([sender isEqual:self.panZoomController]) {
+        
+        [self hidePanZoomView:^(BOOL finished) {
+            [self.panZoomController removeFromParentViewController];
+            [self.panZoomController.view removeFromSuperview];
+        }];
+      
+
+        
+        [self.navigationItem setTitle:@"EDIT"];
+        [self showDefaultNavItems];
+    }
+    
 }
 
 - (void)handleNext:(id) sender {
@@ -194,9 +292,11 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-//    CGPoint offset = self.panoScrollView.contentOffset;
-    
-    //get the ca presentation layer to find the scroll view's current position
+
+    [self _stopAnimationsAndUpdateScrollView];
+}
+
+-(void) _stopAnimationsAndUpdateScrollView {
     CALayer *currentLayer = self.panoScrollView.layer.presentationLayer;
     
     NSLog(@"x offset: %f", currentLayer.bounds.origin.x);
@@ -210,6 +310,27 @@
     [self.panoScrollView setContentOffset:currentLayer.bounds.origin animated:NO];
 }
 
+#pragma mark -- PanZoomEditorDelegate methods
+
+
+
+- (void) didCompleteEditing {
+    [self dismissChildModalViewController:self.panZoomController];
+}
+
+- (void) updateStartPosition:(CGPoint)point withScale:(CGFloat)scale {
+    
+}
+- (void) updateEndPosition:(CGPoint)point withScale:(CGFloat)scale {
+
+}
+- (void) resetStartAndEndPositions{
+
+}
+- (void) swapStartAndEndPositions{
+
+    
+}
 
 
 @end
