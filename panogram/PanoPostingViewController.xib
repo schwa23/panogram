@@ -26,7 +26,7 @@
                     </subviews>
                 </scrollView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write a comment" placeholder="Write a comment" minimumFontSize="17" id="b9d-5B-yaO">
-                    <rect key="frame" x="0.0" y="328" width="313" height="119"/>
+                    <rect key="frame" x="20" y="338" width="293" height="119"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -34,7 +34,7 @@
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.086274512110000007" green="0.09803922474" blue="0.10588236149999999" alpha="1" colorSpace="deviceRGB"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

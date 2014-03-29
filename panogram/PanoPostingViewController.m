@@ -42,15 +42,40 @@
     [super viewDidLoad];
     self.panoScrollView = self.previousScrollView;
     NSLog(@"Panoscrollview = %@", self.panoScrollView);
+
+    
+    [self showDefaultNavItems];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void) viewDidAppear:(BOOL)animated {
     [self.view addSubview:self.panoScrollView];
     self.previousScrollView = nil;
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showDefaultNavItems {
+    
+    
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow" ] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)] animated: YES];
+    
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftItemsSupplementBackButton = NO;
+    
+    self.title = @"POST TO INSTAGRAM";
+
+    
+}
+
+-(void) handleBack: (id)sender {
+
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 @end

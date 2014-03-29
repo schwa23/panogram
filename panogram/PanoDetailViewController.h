@@ -10,7 +10,7 @@
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import "PanZoomViewController.h"
 
-@interface PanoDetailViewController : UIViewController <UIScrollViewDelegate, PanZoomEditorDelegate>
+@interface PanoDetailViewController : UIViewController <UIScrollViewDelegate, PanZoomEditorDelegate, UINavigationControllerDelegate>
 
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 @property (weak, nonatomic) IBOutlet UIImageView *panoImageView;

@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "PanoPostingViewController.h"
 #import "PanZoomViewController.h"
+#import "NavTransitionAnimator.h"
 
 @interface PanoDetailViewController ()
 
@@ -24,6 +25,8 @@
 @property (strong, nonatomic) PanZoomViewController *panZoomController;
 
 @property (weak, nonatomic) IBOutlet UIView *positionIndicator;
+
+@property (strong, nonatomic) NavTransitionAnimator* navTransitionAnimator;
 
 -(id)initWithPanoImageAsset:(ALAsset*)asset;
 
@@ -101,7 +104,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.delegate = self;
 
+    
+    self.navTransitionAnimator = [[NavTransitionAnimator alloc] init];
     
     //create an image view with the asset from the library and set it up in the scroll view
     UIImage *image;
@@ -205,23 +212,13 @@
     CGImageRef thumb = [self.asset aspectRatioThumbnail]; //[rep CGImageWithOptions:nil]
     image = [[UIImage alloc] initWithCGImage:thumb];
     panZoomController.panoImage.image = image;
-   
-
     
     panZoomController.delegate=self;
     self.panZoomController=panZoomController;
-    
 
-   
     [self.navigationItem setTitle:@"PAN & ZOOM"];
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
-
-
-
-    
-    
-    
         
     [UIView animateWithDuration:.35 delay:0 usingSpringWithDamping:.9 initialSpringVelocity:10 options:0 animations:^{
         panZoomController.view.center =finalPoint;
@@ -239,9 +236,7 @@
     CGPoint startPoint = CGPointMake(finalPoint.x,self.view.frame.size.height + panZoomController.view.frame.size.height /2);
     
 //    panZoomController.view.center = startPoint;
-    
-    
-    
+
     
     [UIView animateWithDuration:.35 delay:0 usingSpringWithDamping:.9 initialSpringVelocity:10 options:0 animations:^{
         panZoomController.view.center =startPoint;
@@ -268,8 +263,22 @@
 }
 
 - (void)handleNext:(id) sender {
-//    PanoPostingViewController *postingVC = [[PanoPostingViewController alloc] initWithScrollView:self.panoScrollView];
-//    [self.navigationController pushViewController:postingVC animated:YES];
+    PanoPostingViewController *postingVC = [[PanoPostingViewController alloc] initWithScrollView:self.panoScrollView];
+    
+ 
+    postingVC.modalPresentationStyle = UIModalPresentationCustom;
+//    postingVC.transitioningDelegate = self.transitionAnimator;
+
+    
+    [self.navigationController pushViewController:postingVC animated:YES];
+    
+    
+}
+
+
+
+-(void)animationDidStart:(CAAnimation *)anim {
+    NSLog(@"animation did start");
 }
 
 #pragma mark -- Scroll view delegate methods
@@ -330,6 +339,14 @@
 - (void) swapStartAndEndPositions{
 
     
+}
+
+#pragma  mark -- Navigation controller delegate methods
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    
+    self.navTransitionAnimator.operation = operation;
+    self.navTransitionAnimator.panoScrollView = self.panoScrollView;
+    return self.navTransitionAnimator;
 }
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3349E3DC18D91F0E0002DF65 /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3349E3DB18D91F0E0002DF65 /* TransitionAnimator.m */; };
+		334BD0D618E60038009BDE20 /* NavTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 334BD0D518E60038009BDE20 /* NavTransitionAnimator.m */; };
 		334C6BAF18D5100800729FEA /* Panorama.m in Sources */ = {isa = PBXBuildFile; fileRef = 334C6BAE18D5100800729FEA /* Panorama.m */; };
 		334C6BB218D5114F00729FEA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 334C6BB118D5114F00729FEA /* AssetsLibrary.framework */; };
 		334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 334C6BB418D597C100729FEA /* PanoDetailViewController.m */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		3349E3DA18D91F0E0002DF65 /* TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimator.h; sourceTree = "<group>"; };
 		3349E3DB18D91F0E0002DF65 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimator.m; sourceTree = "<group>"; };
+		334BD0D418E60038009BDE20 /* NavTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavTransitionAnimator.h; sourceTree = "<group>"; };
+		334BD0D518E60038009BDE20 /* NavTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavTransitionAnimator.m; sourceTree = "<group>"; };
 		334C6BAD18D5100800729FEA /* Panorama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panorama.h; sourceTree = "<group>"; };
 		334C6BAE18D5100800729FEA /* Panorama.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panorama.m; sourceTree = "<group>"; };
 		334C6BB118D5114F00729FEA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -124,6 +127,8 @@
 			children = (
 				3349E3DA18D91F0E0002DF65 /* TransitionAnimator.h */,
 				3349E3DB18D91F0E0002DF65 /* TransitionAnimator.m */,
+				334BD0D418E60038009BDE20 /* NavTransitionAnimator.h */,
+				334BD0D518E60038009BDE20 /* NavTransitionAnimator.m */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				33848EE718DA740800E0ADDF /* PanoPostingViewController.m in Sources */,
 				334C6BB618D597C100729FEA /* PanoDetailViewController.m in Sources */,
 				3349E3DC18D91F0E0002DF65 /* TransitionAnimator.m in Sources */,
+				334BD0D618E60038009BDE20 /* NavTransitionAnimator.m in Sources */,
 				33611C9318D4FD2700C1396A /* main.m in Sources */,
 				334C6BAF18D5100800729FEA /* Panorama.m in Sources */,
 				33D7D0C018E235E400CC5314 /* PanZoomViewController.m in Sources */,
